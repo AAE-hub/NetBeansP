@@ -20,24 +20,30 @@ public class GuessGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //adding random object 
         Random ran = new Random();
 
-        
+        // scanner to scan the range and the guess from the user 
         Scanner sca = new Scanner(System.in);
         Scanner sca2 = new Scanner(System.in);
 
+        //try for detectin String input 
         try {
             System.out.println("Enter guessing range");
+            //entring a guess
             int c = sca2.nextInt();
+            // if the guess = 0 then close the program 
             if (c==0){
                 System.out.println("rerun the program and Enter a number more or less than 0");
                exit(1);
             }
             System.out.println("Enter your guess");
-
+            // entring a random variable 
             int b = ran.nextInt(c);
+            //entring the guess
+            
             int a = sca.nextInt();
+            //function 
             if (a > b) {
                 System.out.println("Enter a number between the range");
             } else if (a < 0) {
@@ -50,7 +56,7 @@ public class GuessGame {
                 System.out.println(" wrong guess:(");
                   System.out.println("the random number is --->" + b);
             }
-
+            //catching input errors
         } catch (InputMismatchException n) {
             System.out.println("enter a number  ");
         }
