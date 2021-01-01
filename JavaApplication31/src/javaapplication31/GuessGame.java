@@ -30,12 +30,15 @@ public class GuessGame {
         //try for detectin String input 
         try {
             System.out.println("Enter guessing range");
-            //entring a guess
+            //entring a guess range
             int c = sca2.nextInt();
             // if the guess = 0 then close the program 
             if (c==0){
-                System.out.println("rerun the program and Enter a number more or less than 0");
-               exit(1);
+                System.out.println("rerun the program and Enter a number more than 0");
+               return;
+            }else if (c<0){
+                System.out.println("range should be more than 0");
+                return;
             }
             System.out.println("Enter your guess");
             // entring a random variable 
@@ -44,16 +47,16 @@ public class GuessGame {
             
             int a = sca.nextInt();
             //function 
-            if (a > b) {
+            if (a > c) {
                 System.out.println("Enter a number between the range");
             } else if (a < 0) {
                 System.out.println("Enter a numver between the range");
             } else if (a == b) {
 
-                System.out.println("correct guess:)");
+                System.out.println("you won ,correct guess:)");
               
             } else {
-                System.out.println(" wrong guess:(");
+                System.out.println(" you lost its a wrong guess:(");
                   System.out.println("the random number is --->" + b);
             }
             //catching input errors
