@@ -149,8 +149,6 @@ public class EncryptionProgramFXV2 extends Application {
         }
         //store for loop in str as a word or sentence
         String str = new String(encByt);
-        
-        System.out.println(str);
 
         //creating text area to show encrypted sentence
         TextArea enctext = new TextArea(str);
@@ -167,10 +165,7 @@ public class EncryptionProgramFXV2 extends Application {
  
         Stage newWindow = new Stage();
         newWindow.setTitle("Encrypted text");
-
         newWindow.setScene(secondScene);
-
-       
         newWindow.show();
         return "";
 
