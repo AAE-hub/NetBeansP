@@ -33,6 +33,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javax.swing.JScrollPane;
 
 
 /**
@@ -76,15 +77,13 @@ public class SimpleLibraryProgram extends Application {
         o4.setCellValueFactory(new PropertyValueFactory<books, String>("branch"));
         TableColumn o5 = new TableColumn("5");
         o5.setCellValueFactory(new PropertyValueFactory<books, String>("rownnumber"));
-o1.setMinWidth(250);
-o1.setPrefWidth(210);
-o3.setPrefWidth(210);
-o4.setPrefWidth(210);
-o5.setPrefWidth(210);
-o2.setPrefWidth(100);
-o3.setMinWidth(250);
+        
+        // Set the column resize policy to constrained resize policy
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-
+        // Set the Placeholder for an empty table<font></font>
+        table.setPlaceholder(new Label("No visible columns and/or data exist."));
+        
         table.getColumns().addAll(o1, o2, o3, o4, o5);
        
         Button tableb = new Button("table");
@@ -114,10 +113,10 @@ o3.setMinWidth(250);
 
         //new scene
         Scene secondScene = new Scene(vbox, 400, 50);
-
+         
  
         Stage newWindow = new Stage();
-        newWindow.setTitle("Encrypted text");
+        newWindow.setTitle("ERROR");
         newWindow.setScene(secondScene);
         newWindow.show();
             }  else{
@@ -164,10 +163,12 @@ o3.setMinWidth(250);
              
         root.setPadding(new Insets(10,10,10,10));
         VBox tx=new VBox (tx1,tx2,tx3,tx4,tx5);
-              
+        
+
+        
         root.setHgap(10); 
         root.setVgap(10); 
-        VBox vbox;
+       
         
         VBox label= new VBox(new Label("book name :"),
                 new Label("book number:"),
@@ -183,7 +184,10 @@ o3.setMinWidth(250);
      
         label.setSpacing(17);
         tx.setSpacing(5);
-        root.add(vb,3,1);
+        root.add(vb,3,1,101,10);
+       // We bind the prefHeight- and prefWidthProperty to the height and width of the stage.
+        vb.prefHeightProperty().bind(root.heightProperty());
+        vb.prefWidthProperty().bind(root.widthProperty());
         
         root.add(bytton,2,2,1,1);
         bytton.setAlignment(Pos.CENTER);
@@ -202,6 +206,11 @@ o3.setMinWidth(250);
         Scene scene = new Scene(root, 1500, 400);
      
               
+           // We bind the prefHeight- and prefWidthProperty to the height and width of the stage.
+        table.prefHeightProperty().bind(vb.heightProperty());
+        table.prefWidthProperty().bind(vb.widthProperty());
+           
+        
         
         
         primaryStage.setTitle("Hello World!");
