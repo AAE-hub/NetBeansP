@@ -169,7 +169,6 @@ public class SimpleLibraryProgram extends Application {
         root.setHgap(10); 
         root.setVgap(10); 
        
-        
         VBox label= new VBox(new Label("book name :"),
                 new Label("book number:"),
                 new Label("author"),
